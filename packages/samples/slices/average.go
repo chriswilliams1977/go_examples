@@ -1,8 +1,9 @@
-package samplearray
+package sampleslice
+
 
 import (
 	"fmt"
-	"github.com/chriswilliams1977/headfirst/playground/packages/samples/arrays/datafile"
+	"github.com/chriswilliams1977/headfirst/playground/packages/samples/slices/datafile"
 	"log"
 )
 
@@ -12,7 +13,6 @@ func GetAveragePurchase(){
 		log.Fatal(err)
 	}
 
-	//orders := [3]float64{71.8, 56.2,89.5}
 	sum := 0.0
 
 	for _, order := range numbers{

@@ -1,7 +1,8 @@
 package main
 
 import (
-	"github.com/chriswilliams1977/headfirst/playground/packages/samples/arrays"
+	//"github.com/chriswilliams1977/headfirst/playground/packages/samples/arrays"
+	"github.com/chriswilliams1977/headfirst/playground/packages/samples/slices"
 )
 
 func main() {
@@ -36,5 +37,6 @@ func main() {
 	dutch.SayHello()
 	arrays.GetArrayElements()
 	*/
-	samplearray.GetAveragePurchase()
+	//samplearray.GetAveragePurchase()
+	sampleslice.GetAveragePurchase()
 }
