@@ -1,9 +1,6 @@
 package main
 
-import (
-	//"github.com/chriswilliams1977/headfirst/playground/packages/samples/arrays"
-	"github.com/chriswilliams1977/headfirst/playground/packages/samples/slices"
-)
+import sampleslice "github.com/chriswilliams1977/headfirst/playground/packages/samples/slices"
 
 func main() {
 	//vars.OutputTest()
@@ -38,5 +35,8 @@ func main() {
 	arrays.GetArrayElements()
 	*/
 	//samplearray.GetAveragePurchase()
-	sampleslice.GetAveragePurchase()
+	//sampleslice.GetAveragePurchase()
+	//sampleslice.GetArgs()
+	//sampleslice.VariadicFunctionInRange(1,100,-12.5, 3.2, 0, 50, 103.5)
+	sampleslice.GetAveragePurchaseArgs()
 }
