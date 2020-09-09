@@ -1,6 +1,9 @@
 package main
 
-import sampleslice "github.com/chriswilliams1977/headfirst/playground/packages/samples/slices"
+import (
+	"github.com/chriswilliams1977/headfirst/playground/packages/samples/maps"
+	"github.com/chriswilliams1977/headfirst/playground/packages/maps"
+)
 
 func main() {
 	//vars.OutputTest()
@@ -38,5 +41,7 @@ func main() {
 	//sampleslice.GetAveragePurchase()
 	//sampleslice.GetArgs()
 	//sampleslice.VariadicFunctionInRange(1,100,-12.5, 3.2, 0, 50, 103.5)
-	sampleslice.GetAveragePurchaseArgs()
+	//sampleslice.GetAveragePurchaseArgs()
+	samplemaps.GetDataUsingSlice()
+	maps.CreateMap()
 }

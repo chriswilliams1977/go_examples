@@ -2,12 +2,12 @@ package samplearray
 
 import (
 	"fmt"
-	"github.com/chriswilliams1977/headfirst/playground/packages/samples/arrays/datafile"
+	"github.com/chriswilliams1977/headfirst/playground/packages/samples/datafile"
 	"log"
 )
 
 func GetAveragePurchase(){
-	numbers, err := datafile.GetFloats("data.txt")
+	numbers, err := datafile.GetFloatsArray("data.txt")
 	if err != nil{
 		log.Fatal(err)
 	}
