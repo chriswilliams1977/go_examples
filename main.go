@@ -1,9 +1,6 @@
 package main
 
-import (
-	"github.com/chriswilliams1977/headfirst/playground/packages/samples/maps"
-	"github.com/chriswilliams1977/headfirst/playground/packages/maps"
-)
+import "github.com/chriswilliams1977/headfirst/playground/packages/maps"
 
 func main() {
 	//vars.OutputTest()
@@ -42,6 +39,11 @@ func main() {
 	//sampleslice.GetArgs()
 	//sampleslice.VariadicFunctionInRange(1,100,-12.5, 3.2, 0, 50, 103.5)
 	//sampleslice.GetAveragePurchaseArgs()
-	samplemaps.GetDataUsingSlice()
-	maps.CreateMap()
+	//samplemaps.GetDataUsingSlice()
+	//maps.CreateMap()
+	//maps.Status("Alma")
+	//maps.Status("Rohit")
+	//maps.Status("Carl")
+	maps.CheckZeroValue()
+	maps.DeleteMapKey()
 }

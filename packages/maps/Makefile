@@ -13,3 +13,10 @@
 #but key can be different type to value
 #define by using map[string]float64
 #use make to create a map if you dont know values up front otherwise use literals
+#if not assigned they return 0 value but you can manipulate for example using ++ on a int value
+#before using a map use make or literals
+
+#to add values use append
+#mapname = append[mapname, value]
+#to delete value use delete
+#pass map name and key to delete
