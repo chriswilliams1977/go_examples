@@ -1,6 +1,9 @@
 package maps
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 //map with unknown values to be added
 func CreateMap(){
@@ -87,4 +90,31 @@ func DeleteMapKey(){
 	//get rank value for bronze and set rank to true/false if value assigned
 	rank, ok = ranks["bronze"]
 	fmt.Printf("rank: %d, ok: %v\n",rank, ok)
+}
+
+func UnorderedMapLoop(){
+	grades := map[string]float64{"Alma":74.3,"Rohit":86.5,"Carl":59.7}
+	//for loop processes keys and values in random order because map is unordered
+	//emit value  if you do not want to print key
+	//use _, grade if you only want value
+	for name, grade := range grades{
+		fmt.Printf("%s has a grade of %0.1f%%\n",name,grade)
+	}
+}
+
+func OrderedMapLoop(){
+	grades := map[string]float64{"Alma":74.3,"Rohit":86.5,"Carl":59.7}
+	//to order map keys and values you need to create a slice and add the names
+	//then sort alphabetically
+	//print names from slice
+	var names []string
+	for name := range grades{
+		names = append(names,name)
+	}
+	//alphabetical sorting
+	sort.Strings(names)
+	//print names in slice
+	for _, name := range names{
+		fmt.Printf("%s has a grade of %0.1f%%\n",name,grades[name])
+	}
 }

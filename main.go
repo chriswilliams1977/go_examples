@@ -1,6 +1,9 @@
 package main
 
-import "github.com/chriswilliams1977/headfirst/playground/packages/maps"
+import (
+	"github.com/chriswilliams1977/headfirst/playground/packages/maps"
+	samplemaps "github.com/chriswilliams1977/headfirst/playground/packages/samples/maps"
+)
 
 func main() {
 	//vars.OutputTest()
@@ -46,4 +49,5 @@ func main() {
 	//maps.Status("Carl")
 	maps.CheckZeroValue()
 	maps.DeleteMapKey()
+	samplemaps.GetDataUsingMap()
 }
