@@ -1,8 +1,7 @@
 package main
 
 import (
-	"github.com/chriswilliams1977/headfirst/playground/packages/maps"
-	samplemaps "github.com/chriswilliams1977/headfirst/playground/packages/samples/maps"
+	"github.com/chriswilliams1977/headfirst/playground/packages/structs"
 )
 
 func main() {
@@ -47,7 +46,8 @@ func main() {
 	//maps.Status("Alma")
 	//maps.Status("Rohit")
 	//maps.Status("Carl")
-	maps.CheckZeroValue()
-	maps.DeleteMapKey()
-	samplemaps.GetDataUsingMap()
+	//maps.CheckZeroValue()
+	//maps.DeleteMapKey()
+	//samplemaps.GetDataUsingMap()
+	structs.GetStruct()
 }
