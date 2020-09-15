@@ -1,6 +1,12 @@
 package main
 
 import (
+	"github.com/chriswilliams1977/headfirst/playground/packages/maps"
+	samplearray "github.com/chriswilliams1977/headfirst/playground/packages/samples/arrays"
+	samplemaps "github.com/chriswilliams1977/headfirst/playground/packages/samples/maps"
+	sampleslice "github.com/chriswilliams1977/headfirst/playground/packages/samples/slices"
+	s "github.com/chriswilliams1977/headfirst/playground/packages/samples/structs"
+	"fmt"
 	"github.com/chriswilliams1977/headfirst/playground/packages/structs"
 )
 
@@ -35,19 +41,32 @@ func main() {
 	english.SayHello()
 	dutch.SayHello()
 	arrays.GetArrayElements()
+
+	samplearray.GetAveragePurchase()
+	sampleslice.GetAveragePurchase()
+	sampleslice.GetArgs()
+	sampleslice.VariadicFunctionInRange(1,100,-12.5, 3.2, 0, 50, 103.5)
+	sampleslice.GetAveragePurchaseArgs()
+
+	samplemaps.GetDataUsingSlice()
+	maps.CreateMap()
+	maps.Status("Alma")
+	maps.Status("Rohit")
+	maps.Status("Carl")
+	maps.CheckZeroValue()
+	maps.DeleteMapKey()
+	samplemaps.GetDataUsingMap()
 	*/
-	//samplearray.GetAveragePurchase()
-	//sampleslice.GetAveragePurchase()
-	//sampleslice.GetArgs()
-	//sampleslice.VariadicFunctionInRange(1,100,-12.5, 3.2, 0, 50, 103.5)
-	//sampleslice.GetAveragePurchaseArgs()
-	//samplemaps.GetDataUsingSlice()
-	//maps.CreateMap()
-	//maps.Status("Alma")
-	//maps.Status("Rohit")
-	//maps.Status("Carl")
-	//maps.CheckZeroValue()
-	//maps.DeleteMapKey()
-	//samplemaps.GetDataUsingMap()
 	structs.GetStruct()
+	//Pass struct and amend name locally without using a pointer
+	subnopointer := s.Subscriber{"Chris",2.20,false}
+	s.NewWithOutPointer(subnopointer)
+	fmt.Println(subnopointer)
+	//Pass struct and amend name locally without using a pointer
+	subwithpointer := s.Subscriber{"Bob",3.0,true}
+	//pass address of pointer using &
+	//&  = address of struct
+	s.NewWithPointer(&subwithpointer)
+	fmt.Println(subwithpointer)
+
 }

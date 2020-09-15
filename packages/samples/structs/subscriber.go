@@ -1,21 +1,20 @@
 package samplestructs
 
-import (
-	"fmt"
-)
-
-var subscriber struct{
-	name string
-	rate float64
-	active bool
+type Subscriber struct{
+	Name string
+	Rate float64
+	Active bool
 }
 
-func SetSubscriber(){
-	subscriber.name = "bob"
-	subscriber.rate = 4.99
-	subscriber.active = true
+//remember go is pass-by-value
+//if you create a subscriber locally and then pass to a function that is not using pointers
+//the func will modify local version not the one passed thus use pointers
+func NewWithOutPointer(s Subscriber) {
+	s.Name = "changed name"
+}
 
-	fmt.Println("Name: ", subscriber.name)
-	fmt.Println("Rate: ", subscriber.rate)
-	fmt.Println("Active: ", subscriber.active)
+//use * to update value of pointer
+//* = value of struct
+func NewWithPointer(s *Subscriber){
+	s.Name = "changed name"
 }
