@@ -2,6 +2,7 @@ package structs
 
 import "fmt"
 
+//type definition
 type person struct{
 	firstname string
 	lastname string
@@ -19,4 +20,10 @@ func GetStruct(){
 	chris.height = 181
 	chris.weight = 83.5
 	fmt.Printf("%#v",chris)
+}
+
+func GetStructLiteral(){
+
+	pat := person{firstname:"Pat",lastname:"Williams",height:150}
+	fmt.Printf("%#v",pat)
 }

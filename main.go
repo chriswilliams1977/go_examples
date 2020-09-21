@@ -1,12 +1,7 @@
 package main
 
 import (
-	"github.com/chriswilliams1977/headfirst/playground/packages/maps"
-	samplearray "github.com/chriswilliams1977/headfirst/playground/packages/samples/arrays"
-	samplemaps "github.com/chriswilliams1977/headfirst/playground/packages/samples/maps"
-	sampleslice "github.com/chriswilliams1977/headfirst/playground/packages/samples/slices"
 	s "github.com/chriswilliams1977/headfirst/playground/packages/samples/structs"
-	"fmt"
 	"github.com/chriswilliams1977/headfirst/playground/packages/structs"
 )
 
@@ -57,16 +52,23 @@ func main() {
 	maps.DeleteMapKey()
 	samplemaps.GetDataUsingMap()
 	*/
-	structs.GetStruct()
+	//structs.GetStruct()
 	//Pass struct and amend name locally without using a pointer
-	subnopointer := s.Subscriber{"Chris",2.20,false}
-	s.NewWithOutPointer(subnopointer)
-	fmt.Println(subnopointer)
+	//subnopointer := s.Subscriber{"Chris",2.20,false}
+	//s.NewWithOutPointer(subnopointer)
+	//fmt.Println(subnopointer)
 	//Pass struct and amend name locally without using a pointer
-	subwithpointer := s.Subscriber{"Bob",3.0,true}
+	//subwithpointer := s.Subscriber{"Bob",3.0,true}
 	//pass address of pointer using &
 	//&  = address of struct
-	s.NewWithPointer(&subwithpointer)
-	fmt.Println(subwithpointer)
+	//s.NewWithPointer(&subwithpointer)
+	//fmt.Println(subwithpointer)
 
+	subscriber1 := s.DefaultSubscriber("Aman Singh")
+	s.ApplyDiscount(subscriber1)
+	s.PrintInfo(subscriber1)
+
+	subscriber2 := s.DefaultSubscriber("Beth Ryan")
+	s.PrintInfo(subscriber2)
+	structs.GetStructLiteral()
 }
