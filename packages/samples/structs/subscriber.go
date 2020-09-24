@@ -8,6 +8,25 @@ type Subscriber struct{
 	Name string
 	Rate float64
 	Active bool
+	//annonymous field = remove name and just have type
+	//can use field type name as if it was the name of field
+	//referred to as being embedded in outer struct
+	//these are promoted and can be referenced as they belong to outer struct
+	//thus you can do subscriber.City
+	Address
+}
+
+type Employee struct{
+	Name string
+	Salary float64
+	Address
+}
+
+type Address struct{
+	Street string
+	City string
+	State string
+	PostalCode string
 }
 
 //takes a pointer to a subcriber and prints properties of subscriber pointer

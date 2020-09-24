@@ -1,8 +1,7 @@
 package main
 
 import (
-	s "github.com/chriswilliams1977/headfirst/playground/packages/samples/structs"
-	"github.com/chriswilliams1977/headfirst/playground/packages/structs"
+	d "github.com/chriswilliams1977/headfirst/playground/packages/definedtype"
 )
 
 func main() {
@@ -63,7 +62,7 @@ func main() {
 	//&  = address of struct
 	//s.NewWithPointer(&subwithpointer)
 	//fmt.Println(subwithpointer)
-
+	/*
 	subscriber1 := s.DefaultSubscriber("Aman Singh")
 	s.ApplyDiscount(subscriber1)
 	s.PrintInfo(subscriber1)
@@ -71,4 +70,19 @@ func main() {
 	subscriber2 := s.DefaultSubscriber("Beth Ryan")
 	s.PrintInfo(subscriber2)
 	structs.GetStructLiteral()
+
+	subscriber := s.Subscriber{Name:"Bob"}
+	//address is an anonymous type
+	//address is promoted to outer struct
+	//so you can reference address fields from outer struct
+	subscriber.Street = "Rydons Lane"
+	subscriber.City = "Croydon"
+	subscriber.State = "Surrey"
+	subscriber.PostalCode = "CR5 1SU"
+	fmt.Println(subscriber)
+	*/
+	d.GetFuel()
+	g := d.Gallons(1.2)
+	g.GallonsReceiverWithParams(10, true)
+	g.GallonsReceiverMultiReturns()
 }
