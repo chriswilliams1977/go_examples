@@ -85,4 +85,5 @@ func main() {
 	g := d.Gallons(1.2)
 	g.GallonsReceiverWithParams(10, true)
 	g.GallonsReceiverMultiReturns()
+	d.GetMyTypeValues()
 }
