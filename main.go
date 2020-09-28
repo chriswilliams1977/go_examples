@@ -1,7 +1,9 @@
 package main
 
 import (
-	d "github.com/chriswilliams1977/headfirst/playground/packages/definedtype"
+	encap "github.com/chriswilliams1977/headfirst/playground/packages/encapsulation/calendar"
+	"fmt"
+	"log"
 )
 
 func main() {
@@ -80,10 +82,23 @@ func main() {
 	subscriber.State = "Surrey"
 	subscriber.PostalCode = "CR5 1SU"
 	fmt.Println(subscriber)
-	*/
+
 	d.GetFuel()
 	g := d.Gallons(1.2)
 	g.GallonsReceiverWithParams(10, true)
 	g.GallonsReceiverMultiReturns()
 	d.GetMyTypeValues()
+	*/
+	date := encap.Date{}
+	//Call setters
+	//setter return an error if invalid year sent
+	err := date.SetYear(1979)
+	//check for error
+	if err != nil{
+		log.Fatal("err")
+	}
+	date.SetMonth(07)
+	date.SetDay(29)
+	//Call getters
+	fmt.Println(date.Year())
 }
