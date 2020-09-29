@@ -89,16 +89,41 @@ func main() {
 	g.GallonsReceiverMultiReturns()
 	d.GetMyTypeValues()
 	*/
+	//Using Date type
 	date := encap.Date{}
 	//Call setters
 	//setter return an error if invalid year sent
 	err := date.SetYear(1979)
 	//check for error
 	if err != nil{
-		log.Fatal("err")
+		log.Fatal(err)
 	}
 	date.SetMonth(07)
 	date.SetDay(29)
 	//Call getters
 	fmt.Println(date.Year())
+
+	//Now use Event type with Date as anonymous field
+	//Remember unexported fields and methods are not promoted
+	//create instance of event
+	event := encap.Event{}
+	event.SetTitle("Mum's Birthday")
+	//event returns and error if incorrect year passed
+	//access Date promoted method SetYear()
+	err = event.SetYear(1946)
+	if err != nil{
+		log.Fatal(err)
+	}
+	err = event.SetMonth(02)
+	if err != nil{
+		log.Fatal(err)
+	}
+	err = event.SetDay(11)
+	if err != nil{
+		log.Fatal(err)
+	}
+	fmt.Println(event.Title())
+	fmt.Println(event.Day())
+	fmt.Println(event.Month())
+	fmt.Println(event.Year())
 }
