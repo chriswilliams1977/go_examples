@@ -1,9 +1,9 @@
 package main
 
 import (
-	encap "github.com/chriswilliams1977/headfirst/playground/packages/encapsulation/calendar"
+	samples "github.com/chriswilliams1977/headfirst/playground/packages/samples/interfaces"
+	i "github.com/chriswilliams1977/headfirst/playground/packages/interfaces"
 	"fmt"
-	"log"
 )
 
 func main() {
@@ -88,7 +88,7 @@ func main() {
 	g.GallonsReceiverWithParams(10, true)
 	g.GallonsReceiverMultiReturns()
 	d.GetMyTypeValues()
-	*/
+
 	//Using Date type
 	date := encap.Date{}
 	//Call setters
@@ -126,4 +126,19 @@ func main() {
 	fmt.Println(event.Day())
 	fmt.Println(event.Month())
 	fmt.Println(event.Year())
+	*/
+	 device := samples.TapePlayer{}
+	 songs := []string{"One", "Fake Plastic Trees"}
+	samples.PlayList(device, songs)
+
+	 //declare var with MyInterface as its type
+	 var myInterface  i.MyInterface
+	 //assign myInterface to equal MyType as MyType satifies the interface
+	 myInterface = i.MyType(5)
+	 //call myType methods
+	 myInterface.MethodWithoutParams()
+	 myInterface.MethodWithParams(127.3)
+	 fmt.Println(myInterface.MethodWithReturnValue())
+
+	 fmt.Println(i.CallInterfaceMethod(i.MyType(3)))
 }
