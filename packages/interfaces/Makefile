@@ -17,3 +17,21 @@
 
 #concrete type specifies what methods you can call and what they are (underlying type e.g int, struct, string..)
 #interfaces dont describe what type they are they only describe what they can do
+
+#cannot use type conversions with interfaces
+#if you use pointers as reciever in  methods used by a type you must reference pointer if you assign interface to that type
+#type MyType string
+#func (m *MyType) MyMethod(){}
+#
+#type MyInterface interface(){
+#MyMethod()
+#}
+#
+#m := MyType("this is my type")
+#var i MyInterface = &m
+
+#type assertion allows you to get the concrete type back when assigned to a var with an interface
+#bascially says i know var used interface but i know the underlying type is actually this concrete type
+#then you can call methods on concrete type that are not in the interface
+#var i MyInterface = MyType("this is my type")
+#var myType MyType = i.(MyType)

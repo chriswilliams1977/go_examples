@@ -127,9 +127,13 @@ func main() {
 	fmt.Println(event.Month())
 	fmt.Println(event.Year())
 	*/
-	 device := samples.TapePlayer{}
+	 tapePlayer := samples.TapePlayer{}
+	 tapeRecorder := samples.TapeRecorder{}
 	 songs := []string{"One", "Fake Plastic Trees"}
-	samples.PlayList(device, songs)
+
+	 samples.PlayList(tapePlayer, songs)
+	 //calling method with type assertion
+	 samples.TryOut(tapeRecorder)
 
 	 //declare var with MyInterface as its type
 	 var myInterface  i.MyInterface
