@@ -35,3 +35,6 @@
 #then you can call methods on concrete type that are not in the interface
 #var i MyInterface = MyType("this is my type")
 #var myType MyType = i.(MyType)
+
+#To find an interface type definition  use go doc
+#go doc fmt Println

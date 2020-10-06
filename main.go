@@ -1,9 +1,9 @@
 package main
 
 import (
-	samples "github.com/chriswilliams1977/headfirst/playground/packages/samples/interfaces"
-	i "github.com/chriswilliams1977/headfirst/playground/packages/interfaces"
 	"fmt"
+	i "github.com/chriswilliams1977/headfirst/playground/packages/interfaces"
+	samples "github.com/chriswilliams1977/headfirst/playground/packages/samples/interfaces"
 )
 
 func main() {
@@ -145,4 +145,24 @@ func main() {
 	 fmt.Println(myInterface.MethodWithReturnValue())
 
 	 fmt.Println(i.CallInterfaceMethod(i.MyType(3)))
+
+	 //Examples of out of the box interfaces you can implement
+
+	 //Error interface
+	 //OverheatError has func CheckTemperature that returns am error
+	 /*
+	 var err error = i.CheckTemperature(121.3, 100)
+	 if err != nil {
+	 	log.Fatal(err)
+	 }
+	*/
+	 //Stringer interface
+	fmt.Println(i.Gallons(12.09248342))
+	fmt.Println(i.Liters(12.09248342))
+	fmt.Println(i.Milliliters(12.09248342))
+
+	i.AcceptAnything(3.152)
+	i.AcceptAnything("Hello")
+	i.AcceptAnything(true)
+	i.AcceptAnything(tapePlayer)
 }
