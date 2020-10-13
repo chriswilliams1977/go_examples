@@ -1,9 +1,10 @@
 package main
 
 import (
+	f "github.com/chriswilliams1977/headfirst/playground/packages/failures"
 	"fmt"
-	i "github.com/chriswilliams1977/headfirst/playground/packages/interfaces"
-	samples "github.com/chriswilliams1977/headfirst/playground/packages/samples/interfaces"
+	"log"
+	"os"
 )
 
 func main() {
@@ -126,7 +127,7 @@ func main() {
 	fmt.Println(event.Day())
 	fmt.Println(event.Month())
 	fmt.Println(event.Year())
-	*/
+
 	 tapePlayer := samples.TapePlayer{}
 	 tapeRecorder := samples.TapeRecorder{}
 	 songs := []string{"One", "Fake Plastic Trees"}
@@ -155,7 +156,8 @@ func main() {
 	 if err != nil {
 	 	log.Fatal(err)
 	 }
-	*/
+
+
 	 //Stringer interface
 	fmt.Println(i.Gallons(12.09248342))
 	fmt.Println(i.Liters(12.09248342))
@@ -165,4 +167,24 @@ func main() {
 	i.AcceptAnything("Hello")
 	i.AcceptAnything(true)
 	i.AcceptAnything(tapePlayer)
+	*/
+
+	//pass filename from cli args
+	numbers, err := f.GetFloats(os.Args[1])
+	if err != nil {
+		log.Fatal(err)
+	}
+	//init var to hold sum
+	var sum float64 = 0
+	//for each value in numbers slice
+	for _, number := range numbers{
+		//add to the sum
+		sum += number
+	}
+	fmt.Printf("Sum: %0.2f\n", sum)
+
+	e := f.DeferExample()
+	if e != nil {
+		log.Fatal(e)
+	}
 }
