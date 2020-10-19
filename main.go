@@ -170,6 +170,7 @@ func main() {
 	*/
 
 	//pass filename from cli args
+	//call go run main.go floats.txt
 	numbers, err := f.GetFloats(os.Args[1])
 	if err != nil {
 		log.Fatal(err)
@@ -183,8 +184,15 @@ func main() {
 	}
 	fmt.Printf("Sum: %0.2f\n", sum)
 
+	/*
 	e := f.DeferExample()
 	if e != nil {
 		log.Fatal(e)
-	}
+	}*/
+
+	//use this if you want to get current dir
+	//currentDir := f.GetCurrentDirName()
+	f.ScanDir("./packages/failures")
+
+	//f.RecursionExample()
 }

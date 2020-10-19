@@ -66,3 +66,18 @@ func DeferExample() error{
 	fmt.Println("Nice weather hey!!")
 	return nil
 }
+
+func RecursionExample(){
+	count(1,3)
+}
+
+//example of function recursion
+func count(start int, end int){
+	fmt.Printf("count(%d, %d) called \n", start, end)
+	fmt.Println(start)
+	if start < end {
+		//function calls itself
+		count(start+1, end)
+	}
+	fmt.Printf("Returning from count (%d, %d) call \n", start, end)
+}
