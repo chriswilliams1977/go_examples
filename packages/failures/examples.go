@@ -81,3 +81,23 @@ func count(start int, end int){
 	}
 	fmt.Printf("Returning from count (%d, %d) call \n", start, end)
 }
+
+func PanicExample(){
+	//if func is panicing this deferred recover will always get completed a recover from panic
+	defer RecoverExample()
+	panic("oh no")
+	//this never gets called as panic stops func executing
+	//recover()
+	fmt.Println("I wont be run")
+}
+
+func RecoverExample(){
+	recover()
+}
+
+func PanicTest(){
+	PanicExample()
+	//this gets run as recover is called
+	//fun PanicExample func returns wtihout calling print
+	fmt.Println("Exiting normally")
+}

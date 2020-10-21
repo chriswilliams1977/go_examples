@@ -1,8 +1,8 @@
 package main
 
 import (
-	f "github.com/chriswilliams1977/headfirst/playground/packages/failures"
 	"fmt"
+	f "github.com/chriswilliams1977/headfirst/playground/packages/failures"
 	"log"
 	"os"
 )
@@ -192,6 +192,9 @@ func main() {
 
 	//use this if you want to get current dir
 	//currentDir := f.GetCurrentDirName()
+	//defer ensures recover is handled if panic occurred in ScanDir
+	defer f.ReportPanic()
+	panic("some other issue")
 	f.ScanDir("./packages/failures")
 
 	//f.RecursionExample()
