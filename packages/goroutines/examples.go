@@ -2,6 +2,7 @@ package goroutines
 
 import (
 	"fmt"
+	"time"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -34,4 +35,43 @@ func GetPageWeight(url string){
 
 func ChannelExample(myChannel chan string){
 	myChannel <- "hi"
+}
+
+//two functions which recieve channels as part of goroutines
+func ChannelABC(channel chan string){
+	channel <- "a"
+	channel <- "b"
+	channel <- "c"
+}
+
+func ChannelDEF(channel chan string){
+	channel <- "d"
+	channel <- "e"
+	channel <- "f"
+}
+
+//example of blocking slowed down
+func ReportNap(name string, delay int){
+	//fo every second goroutine is asleep print message sleeping
+	for i := 0; i < delay; i++{
+		fmt.Println(name, "sleeping")
+		time.Sleep(1 * time.Second)
+	}
+	//wake up goroutine message
+	fmt.Println(name, "wakes up!")
+}
+
+//func that cause goroutine to nap
+//recieve a channel
+func SendGoRoutine(myChannel chan string){
+	//sleep goroutine for 2 seconds
+	//every second goroutine is asleep it prints a sleeping message
+	ReportNap("sending goroutine",2)
+
+	fmt.Println("***sending value***")
+	//send 2 value to channel
+	myChannel <- "a"
+	fmt.Println("***sending value***")
+	//send value to channel
+	myChannel <- "b"
 }

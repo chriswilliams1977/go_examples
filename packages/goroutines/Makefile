@@ -31,3 +31,6 @@
 #myChannel <- 3.14
 #also use <- to receive the value fro  a channel
 #<- myChannel
+
+#Channels use blocking = pauses all operations in sending or recieving goroutines until data is send/recieve
+#allow sync of actions - coordinate timing
