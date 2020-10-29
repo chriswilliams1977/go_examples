@@ -8,7 +8,13 @@ import (
 	"net/http"
 )
 
-func GetPageWeight(url string){
+type Page struct{
+	URL string
+	Size int
+}
+
+//takes a url string and a channel which holds the Page type
+func GetPageWeight(url string, channel chan Page){
 	fmt.Println("Getting",url)
 
 	//http.Get() returns http response obj
@@ -30,7 +36,8 @@ func GetPageWeight(url string){
 	}
 
 	//convert bytes into string
-	fmt.Println(len(body))
+	//send page type in channel
+	channel <- Page{URL:url,Size:len(body)}
 }
 
 func ChannelExample(myChannel chan string){

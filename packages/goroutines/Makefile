@@ -34,3 +34,5 @@
 
 #Channels use blocking = pauses all operations in sending or recieving goroutines until data is send/recieve
 #allow sync of actions - coordinate timing
+
+#channels can carry composite types like structs, slices, maps

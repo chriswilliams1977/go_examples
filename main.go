@@ -1,9 +1,8 @@
 package main
 
-import(
-	r "github.com/chriswilliams1977/headfirst/playground/packages/goroutines"
+import (
 	"fmt"
-	"time"
+	r "github.com/chriswilliams1977/headfirst/playground/packages/goroutines"
 )
 
 func main() {
@@ -199,11 +198,31 @@ func main() {
 	*/
 
 	//using goroutines
-	go r.GetPageWeight("https://example.com")
-	go r.GetPageWeight("https://golang.org")
-	go r.GetPageWeight("https://golang.org/doc")
+	//create a channel to get data from goroutines - remember cant use return in func called by goroutine
+	//channel holds a Page struct so we can keep url and size together
+	pages := make(chan r.Page)
+	urls := []string{"https://example.com","https://golang.org","https://golang.org/doc"}
+	//for each url in slice
+	for _, url := range urls{
+		//call GetPageWeight func with url from slice and a channel holding a Page struct
+		go r.GetPageWeight(url, pages)
+	}
+	//go r.GetPageWeight("https://example.com", sizes)
+	//go r.GetPageWeight("https://golang.org", sizes)
+	//go r.GetPageWeight("https://golang.org/doc", sizes)
 	//gives time for goroutines to finish before main goroutine
-	time.Sleep(5 * time.Second)
+	//time.Sleep(5 * time.Second) - can use channels to replace this
+
+	//for each url in the slice
+	for i := 0; i < len(urls); i++{
+		//get the page struct from the channel
+		page := <-pages
+		//print values of the struct
+		fmt.Printf("%s: %d\n",page.URL, page.Size)
+	}
+	//fmt.Println(<-sizes)
+	//fmt.Println(<-sizes)
+	//fmt.Println(<-sizes)
 
 	//channel example
 	myChannel := make(chan string)
