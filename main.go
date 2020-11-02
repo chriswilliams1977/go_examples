@@ -1,8 +1,8 @@
 package main
 
 import (
+	t "github.com/chriswilliams1977/headfirst/playground/packages/testing"
 	"fmt"
-	r "github.com/chriswilliams1977/headfirst/playground/packages/goroutines"
 )
 
 func main() {
@@ -195,7 +195,7 @@ func main() {
 		f.ScanDir("./packages/failures")
 
 		//f.RecursionExample()
-	*/
+
 
 	//using goroutines
 	//create a channel to get data from goroutines - remember cant use return in func called by goroutine
@@ -261,4 +261,9 @@ func main() {
 	//these are only recieved once the main goroutine wakes up after the extra 3 seconds it sleeps longer than send goroutine
 	fmt.Println(<-myChannel1)
 	fmt.Println(<-myChannel1)
+	*/
+	words1 := []string{"apple","orange","pear","banana"}
+	words2 := []string{"apple","orange"}
+	fmt.Println(t.JoinWithCommas(words1))
+	fmt.Println(t.JoinWithCommas(words2))
 }
