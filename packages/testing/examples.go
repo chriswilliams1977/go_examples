@@ -11,7 +11,7 @@ func JoinWithCommas(phrases []string) string{
 	//:len(phrases)-1] gets all strings upto last string and joins them with comma in between
 	result := strings.Join(phrases[:len(phrases)-1],", ")
 	//add and
-	result += " and "
+	result += ", and "
 	//add the last string in slice
 	result += phrases[len(phrases)-1]
 	//returns string with items joined

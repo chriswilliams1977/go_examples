@@ -13,3 +13,5 @@
 #run using go test with import package path
 #go looks in package for files with _test.go
 #for example go test github.com/chriswilliams1977/headfirst/playground/packages/testing
+
+#use t.Errorf - to generate a more detailed error message i.e args, return value, value expected
