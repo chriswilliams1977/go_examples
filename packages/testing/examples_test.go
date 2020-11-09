@@ -17,6 +17,7 @@ func TestJoinWithCommas(t *testing.T){
 	//create a string of testData
 	tests := []testData{
 		//you can omit testData as go know the type from parent
+		{list: []string{}, want: ""},
 		{list: []string{"apple"}, want: "apple"},
 		{list: []string{"apple","orange"}, want: "apple and orange"},
 		{list: []string{"apple","orange","pear"}, want: "apple, orange and pear"},
