@@ -1,8 +1,9 @@
 package main
 
 import (
-	t "github.com/chriswilliams1977/headfirst/playground/packages/testing"
-	"fmt"
+	w "github.com/chriswilliams1977/headfirst/playground/packages/webapp"
+	"log"
+	"net/http"
 )
 
 func main() {
@@ -261,9 +262,27 @@ func main() {
 	//these are only recieved once the main goroutine wakes up after the extra 3 seconds it sleeps longer than send goroutine
 	fmt.Println(<-myChannel1)
 	fmt.Println(<-myChannel1)
-	*/
+
 	words1 := []string{"apple","orange","pear","banana"}
 	words2 := []string{"apple","orange"}
 	fmt.Println(t.JoinWithCommas(words1))
 	fmt.Println(t.JoinWithCommas(words2))
+	 */
+
+	//if we receive request for url enmding with /hello
+	//call ViewHandler
+	http.HandleFunc("/hello",w.EnglishHandler)
+	http.HandleFunc("/salut",w.FrenchHandler)
+	http.HandleFunc("/namaste",w.HindiHandler)
+	//http.ListenAndServe starts web server
+	//remember net.http package has a small web server to handle requests
+	//listen for browser requests and respond to them
+	//localhost means web server is running on your machine
+	//default port for http requests is 80
+	//nil value means requests will be handled using funcs set up in the HandleFunc
+	//ListenAndServe runs forever unless and error occurs
+	err := http.ListenAndServe("localhost:8080",nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
