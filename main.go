@@ -269,6 +269,8 @@ func main() {
 	fmt.Println(t.JoinWithCommas(words2))
 	 */
 
+	w.FuncVarExample()
+
 	//if we receive request for url enmding with /hello
 	//call ViewHandler
 	http.HandleFunc("/hello",w.EnglishHandler)
@@ -285,4 +287,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+
 }
