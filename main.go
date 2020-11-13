@@ -1,9 +1,9 @@
 package main
 
 import (
-	w "github.com/chriswilliams1977/headfirst/playground/packages/webapp"
 	"log"
 	"net/http"
+	w "github.com/chriswilliams1977/headfirst/playground/packages/webapp"
 )
 
 func main() {
@@ -269,13 +269,13 @@ func main() {
 	fmt.Println(t.JoinWithCommas(words2))
 	 */
 
-	w.FuncVarExample()
+	//w.FuncVarExample()
 
 	//if we receive request for url enmding with /hello
 	//call ViewHandler
-	http.HandleFunc("/hello",w.EnglishHandler)
-	http.HandleFunc("/salut",w.FrenchHandler)
-	http.HandleFunc("/namaste",w.HindiHandler)
+	//http.HandleFunc("/hello",w.EnglishHandler)
+	//http.HandleFunc("/salut",w.FrenchHandler)
+	//http.HandleFunc("/namaste",w.HindiHandler)
 	//http.ListenAndServe starts web server
 	//remember net.http package has a small web server to handle requests
 	//listen for browser requests and respond to them
@@ -283,10 +283,16 @@ func main() {
 	//default port for http requests is 80
 	//nil value means requests will be handled using funcs set up in the HandleFunc
 	//ListenAndServe runs forever unless and error occurs
+	/*
 	err := http.ListenAndServe("localhost:8080",nil)
 	if err != nil {
 		log.Fatal(err)
 	}
-
-
+	*/
+	//call viewhandler when request path is  /guestbook
+	http.HandleFunc("/guestbook",w.ViewHandler)
+	err := http.ListenAndServe("localhost:8080",nil)
+	//this will never be nil so we dont check it
+	//if it fails it will always return an error
+	log.Fatal(err)
 }
