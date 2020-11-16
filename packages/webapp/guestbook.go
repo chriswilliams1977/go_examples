@@ -73,10 +73,10 @@ func TextTemplateWithData(text string, data interface{}){
 }
 
 func TextTemplateWithStruct(){
-	templateText := "Name: {{.Name}}\n{{if .Active}}Rate: ${{.Rate}}\n{{end}}"
+	//remember to use range to iterate over a slice of structs
+	templateText := "{{range .}}Name: {{.Name}}\n{{if .Active}}Rate: ${{.Rate}}\n{{end}}{{end}}"
 	subscriber1 := Subscriber{Name: "Chris Williams", Rate: 4.99, Active: false}
 	subscriber2 := Subscriber{Name: "Luna Williams", Rate: 2.33, Active: true}
-	TextTemplateWithData(templateText,subscriber1)
-	TextTemplateWithData(templateText,subscriber2)
+	TextTemplateWithData(templateText,[]Subscriber{subscriber1,subscriber2})
 }
 
