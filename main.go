@@ -289,6 +289,19 @@ func main() {
 		log.Fatal(err)
 	}
 	*/
+	//w.TextTemplateExample("test string")
+	w.TextTemplateWithData("Template start\nAction: {{.}}\nTemplate end \n","ABC")
+
+	//template example using if
+	w.TextTemplateWithData("Start {{if .}}Dot is true!{{end}} finish\n",true)
+	w.TextTemplateWithData("Start {{if .}}Dot is true!{{end}} finish\n",false)
+
+	//template example using range
+	w.TextTemplateWithData("Before the loop: {{.}}\n{{range .}}In loop: {{.}}\n{{end}}After loop: {{.}}\n",[]string{"do","re","mi"})
+
+	//template using structs
+	w.TextTemplateWithStruct()
+
 	//call viewhandler when request path is  /guestbook
 	http.HandleFunc("/guestbook",w.ViewHandler)
 	err := http.ListenAndServe("localhost:8080",nil)
