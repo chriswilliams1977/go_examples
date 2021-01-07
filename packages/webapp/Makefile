@@ -6,7 +6,7 @@
 #when passing a func as param it has to be the right type
 #for example http.HandleFunc expect func(ResponseWriter, *Request)
 #a functions params and return value are part of its type
-#a var that holds a fun needs to specify its params and return values
+#a var that holds a function needs to specify its params and return values
 
 #html/template package allows you to include html responses
 #this package can load html in from and file and insert signatures

@@ -304,6 +304,11 @@ func main() {
 
 	//call viewhandler when request path is  /guestbook
 	http.HandleFunc("/guestbook",w.ViewHandler)
+	//call newhandler when request path is  /new
+	http.HandleFunc("/guestbook/new",w.NewHandler)
+	//call newhandler when request path is  /new
+	http.HandleFunc("/guestbook/create",w.CreateHandler)
+
 	err := http.ListenAndServe("localhost:8080",nil)
 	//this will never be nil so we dont check it
 	//if it fails it will always return an error
