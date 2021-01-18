@@ -1,9 +1,7 @@
 package main
 
 import (
-	"log"
-	"net/http"
-	w "github.com/chriswilliams1977/headfirst/playground/packages/webapp"
+	r "github.com/chriswilliams1977/headfirst/playground/packages/files"
 )
 
 func main() {
@@ -288,7 +286,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	*/
+
 	//w.TextTemplateExample("test string")
 	w.TextTemplateWithData("Template start\nAction: {{.}}\nTemplate end \n","ABC")
 
@@ -313,4 +311,9 @@ func main() {
 	//this will never be nil so we dont check it
 	//if it fails it will always return an error
 	log.Fatal(err)
+	*/
+
+	//r.ReadFile()
+	//r.WriteFile()
+	r.BitwiseExample()
 }
