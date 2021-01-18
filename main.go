@@ -1,7 +1,9 @@
 package main
 
 import (
-	r "github.com/chriswilliams1977/headfirst/playground/packages/files"
+	"fmt"
+	o "github.com/chriswilliams1977/headfirst/playground/packages/other"
+	"time"
 )
 
 func main() {
@@ -315,5 +317,42 @@ func main() {
 
 	//r.ReadFile()
 	//r.WriteFile()
-	r.BitwiseExample()
+	//r.BitwiseExample()
+
+	//print time program started
+	fmt.Println(time.Now())
+	//make unbuffered channel
+	channel1 := make(chan string)
+	//launch sendLetters in new goroutine
+	go o.SendLetters(channel1)
+	//make main goroutine sleep 5 seconds
+	time.Sleep(5 * time.Second)
+	//receive a print values with current time
+	//first value already waiting to be recieved
+	//other goroutines blocked until first letter received
+	fmt.Println(<-channel1, time.Now())
+	fmt.Println(<-channel1, time.Now())
+	fmt.Println(<-channel1, time.Now())
+	fmt.Println(<-channel1, time.Now())
+	fmt.Println(time.Now())
+
+	//buffered channel speeds this up
+	//first value sent to channel and doesnt block until main goroutine recieves it
+	//send 3 values to the buffer
+	//it only blocks the goroutine on forth letter sent to buffer
+	fmt.Println(time.Now())
+	//make buffered channel with 3 spaces
+	channel2 := make(chan string, 3)
+	//launch sendLetters in new goroutine
+	go o.SendLetters(channel2)
+	//make main goroutine sleep 5 seconds
+	time.Sleep(5 * time.Second)
+	//receive a print values with current time
+	//first value already waiting to be recieved
+	//other goroutines blocked until first letter received
+	fmt.Println(<-channel2, time.Now())
+	fmt.Println(<-channel2, time.Now())
+	fmt.Println(<-channel2, time.Now())
+	fmt.Println(<-channel2, time.Now())
+	fmt.Println(time.Now())
 }
